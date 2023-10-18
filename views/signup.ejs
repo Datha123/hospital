@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>Sign Up</title>
+    <style>
+        body {
+    background-image: url('https://img.freepik.com/free-vector/hospital-clinic-building-with-ambulance-car-truck_107791-2645.jpg?w=1060&t=st=1697633357~exp=1697633957~hmac=aa0b5eb150db63ffda39e050d140a53b17d0827062b334b912748bdac157ccbd');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Optional: Add styles for form validation messages */
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form method="post" action="/signup">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name="dob" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+
+        <label for="terms">I agree to the Terms and Conditions:</label>
+        <input type="checkbox" name="terms" required><br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>

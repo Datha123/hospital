@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hospital Appointment Form</title>
+    <style>
+        body {
+    background-image: url('https://img.freepik.com/free-vector/hospital-clinic-building-with-ambulance-car-truck_107791-2645.jpg?w=1060&t=st=1697633357~exp=1697633957~hmac=aa0b5eb150db63ffda39e050d140a53b17d0827062b334b912748bdac157ccbd');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+form {
+    background: none;
+    padding: 30px;
+    border-radius: 10px;
+    width: 800px;
+}
+
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+h2 {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h2 marquee {
+            display: block;
+            width: 100%;
+            animation: scrollleft 10s linear infinite; /* Adjust the animation duration as needed */
+        }
+
+        @keyframes scrollleft {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <form action="/submitForm" method="POST">
+        <h1>HospitaL Appointment form</h1>
+        <h2><marquee behavior="scroll" direction="left" scrollamount="10"><b>Timings: 9am-12pm ; 2:30pm-9pm ; Sunday no op</b></marquee></h2>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+
+        <label for="village">Village/Town:</label>
+        <input type="text" id="village" name="village"><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+
+        <label for="appointmentDate">Appointment Date:</label>
+        <input type="date" id="appointmentDate" name="appointmentDate"><br><br>
+
+        <button type="submit">Make Appointment</button>
+
+    </form>
+</body>
+
+</html>

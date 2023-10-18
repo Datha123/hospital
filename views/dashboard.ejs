@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+    background-image: url('https://img.freepik.com/free-vector/hospital-clinic-building-with-ambulance-car-truck_107791-2645.jpg?w=1060&t=st=1697633357~exp=1697633957~hmac=aa0b5eb150db63ffda39e050d140a53b17d0827062b334b912748bdac157ccbd');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+#header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+#header a:hover {
+    text-decoration: underline;
+}
+
+#content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.box h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.box a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.box a:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h2 id="welcomeMessage">welcome</h2>
+
+        <a href="/home">Home</a>
+    </div>
+    <div id="content">
+        <div class="box">
+            <h2>Vishnu Dental Hospital</h2>
+            <a href="/hospital">Appointment</a>
+        </div>
+    </div>
+</body>
+<script>
+const admin = require('firebase-admin');
+
+const serviceAccount = require('./keys.json');
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-h55ca%40group-f33d1.iam.gserviceaccount.com', // Replace with your Firestore database URL
+    ignoreUndefinedProperties: true, 
+});
+
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the Firestore database and Firebase Authentication
+var db = firebase.firestore();
+var auth = firebase.auth();
+
+// Check for the currently signed-in user
+auth.onAuthStateChanged(function(user) {
+    if (user) {
+        var userId = user.uid;
+        var welcomeMessage = document.getElementById('welcomeMessage');
+        db.collection("users").doc(userId).get().then((doc) => {
+            if (doc.exists) {
+                welcomeMessage.textContent = "Welcome, " + doc.data().name;
+            } else {
+                welcomeMessage.textContent = "User data not found";
+            }
+        }).catch((error) => {
+            welcomeMessage.textContent = "Error getting user data: " + error;
+        });
+    } else {
+        // User is not signed in, handle this case accordingly
+        console.log('No user signed in');
+    }
+});
+</script>
+</html>
